@@ -1,0 +1,21 @@
+# Ignorar pastas do XAMPP ou arquivos temporários
+*.log
+*.sql
+*.sqlite
+*.bak
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos do sistema
+*.swp
+*.swo
+
+# Ignorar pastas comuns em projetos PHP
+vendor/
+node_modules/
+.env
+.idea/
+.vscode/
+
+# Git LFS já cuida dos .cdr, então não precisa ignorar eles
