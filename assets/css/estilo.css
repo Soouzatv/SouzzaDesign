@@ -1,0 +1,163 @@
+:root {
+    --header-height: 100px; /* Altura do cabeçalho */
+}
+
+body {
+    margin: 0;
+    padding-top: var(--header-height); /* Espaço reservado abaixo do header */
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f7f7f7;
+}
+
+/* Cabeçalho fixo com faixa degradê inferior */
+.top-header {
+    background-color: #000;
+    height: var(--header-height);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+
+    /* fundo preto + faixa degradê embaixo */
+    background-image:
+        linear-gradient(to right, cyan, magenta, yellow, black, cyan);
+    background-repeat: no-repeat;
+    background-size: 400% 6px, 100% var(--header-height);
+    background-position: 0 100%, 0 0;
+    animation: animar-borda 10s linear infinite;
+    box-shadow: none;
+}
+
+/* Container interno do cabeçalho */
+.top-header .container {
+    max-width: 1200px;
+    height: 100%;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo-area {
+    padding-left: 20px;
+}
+
+.logo-area img {
+    height: 45px;
+}
+
+/* Campo de busca */
+.search-bar {
+    flex: 1;
+    margin: 0 20px;
+    display: flex;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-bar button {
+    background-color: #FF00FF;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+/* Ícones do cabeçalho (login, favoritos, carrinho) */
+.icons-area {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-right: 30px;
+}
+
+.icons-area a {
+    color: #FFFF00;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.icons-area a:hover {
+    color: #FF00FF;
+}
+
+/* CARD de produto */
+.card-produto {
+    background-color: transparent !important; /* Remove o fundo escuro de vez */
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* QUADRADO que contém a imagem */
+.card-produto .box-img {
+    width: 280px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border-radius: 20px;
+    border: 3px solid;
+    border-image: linear-gradient(to right, cyan, magenta, yellow, black, cyan) 1;
+    overflow: hidden;
+    position: relative;
+}
+
+/* IMAGEM dentro do quadrado centralizada proporcionalmente */
+.card-produto .box-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+    background: transparent;
+}
+
+/* ZOOM ao passar o mouse */
+.card-produto .box-img:hover img {
+    transform: scale(1.05);
+}
+
+/* Exibição principal da imagem do produto */
+.img-display {
+    border: none !important;        /* Sem borda degradê */
+    padding: 0 !important;
+    border-radius: 0 !important;    /* Sem canto arredondado */
+    background: transparent;
+    width: auto;
+    height: auto;
+    max-width: 500px;
+    margin: auto;
+}
+
+.img-display img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+
+/* Animação do degradê no cabeçalho */
+@keyframes animar-borda {
+    0%   { background-position: 0 100%, 0 0; }
+    50%  { background-position: 100% 100%, 0 0; }
+    100% { background-position: 0 100%, 0 0; }
+}
